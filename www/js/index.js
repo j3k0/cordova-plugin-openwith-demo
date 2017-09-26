@@ -1,46 +1,45 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+document.addEventListener('deviceready', setupOpenwith, false);
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
+function setupOpenwith() {
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+  // Increase verbosity if you need more logs
+  //cordova.openwith.setVerbosity(cordova.openwith.DEBUG);
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+  // Initialize the plugin
+  cordova.openwith.init(initSuccess, initError);
 
-        console.log('Received Event: ' + id);
+  function initSuccess()  { console.log('init success!'); }
+  function initError(err) { console.log('init failed: ' + err); }
+
+  // Define your file handler
+  cordova.openwith.addHandler(myHandler);
+
+  function myHandler(intent) {
+    console.log('intent received');
+
+    console.log('  action: ' + intent.action);   // type of action requested by the user
+    console.log('  exit: ' + intent.exit); // if true, you should exit the
+                                                 // app after processing
+
+    for (var i = 0; i < intent.items.length; ++i) {
+      var item = intent.items[i];
+      console.log('  type: ' + item.type);   // mime type
+      console.log('  uri: ' + item.uri);     // uri to the file, probably NOT a web uri
+      console.log('  path: ' + item.path);   // path on the device, might be undefined
     }
-};
 
-app.initialize();
+    // ...
+    // Here, you probably want to do something useful with the data
+    // ...
+    // An example...
+
+    // For simplicity, only handle sharing a single file.
+    if (intent.items.length > 0) {
+      cordova.openwith.load(intent.items[0], function(data, item) {
+        // data is a long base64 string with the content of the file
+        console.log("item loaded, it weights " + data.length + " bytes");
+        // uploadToServer(item); // upload to your server, confirm to the user.
+      });
+    }
+  }
+}

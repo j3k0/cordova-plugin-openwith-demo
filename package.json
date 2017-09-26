@@ -8,5 +8,18 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Apache Cordova Team",
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cc.fovea.cordova.openwith": "file:///Users/jeko/Documents/cordova-plugin-openwith",
+        "cordova-android": "^6.2.3",
+        "cordova-plugin-whitelist": "1"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cc.fovea.cordova.openwith": {
+                "MIME_TYPE": "image/*"
+            }
+        }
+    }
 }

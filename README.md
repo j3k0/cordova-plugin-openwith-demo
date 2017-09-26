@@ -7,31 +7,27 @@
 > This is a demo app for Cordova's "Open With..." plugin ([cordova-plugin-openwith](https://github.com/j3k0/cordova-plugin-openwith)).
 
 ## Overview
-...
+This app will accept to be sent images. When an image is shared with the app, it'll load it and display it's size in bytes in the console. See `www/js/index.js` for the code.
 
 ## Table of Contents
 
-- [Background](#background)
-- [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [API](#api)
 - [License](#license)
 
 
-## Background
-_If your module depends on important but not widely known abstractions or other ecosystems, explain them here. This is also a good place to explain the module's motivation if similar modules already exist._
-
-## Installation
-
 ## Configuration
-_If your module requires configuration before developers can use it, explain it in this section._
+Before launching, add the platform you want to test with.
+
+    cordova platform add android
 
 ## Usage
-_Show developers what a module looks like in action so they can quickly determine whether the example meets their needs. This section should contain clear, runnable code examples._
+Run the app with cordova:
 
-## API
-_The API section should detail the module's objects and functions, their signatures, return types, callbacks, and events in detail. Types should be included where they aren't obvious. Caveats should be made clear._
+    cordova run android --debug
+
+Then you can use Chrome or Safari's dev tool to see what happens.
 
 ## Contribute
 
@@ -39,7 +35,6 @@ Contributions in the form of GitHub pull requests are welcome. Please adhere to 
   - Before embarking on a significant change, please create an issue to discuss the proposed change and ensure that it is likely to be merged.
   - Follow the coding conventions used throughout the project. Many conventions are enforced using eslint.
   - Any contributions must be licensed under the MIT license.
-
 
 ## License
 

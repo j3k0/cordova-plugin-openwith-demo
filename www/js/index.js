@@ -43,6 +43,7 @@ function setupOpenwith() {
       cordova.openwith.load(intent.items[0], function(data, item) {
         // data is a long base64 string with the content of the file
         console.log("item loaded, it weights " + data.length + " bytes");
+        cordova.openwith.exit();
         // upload to your server, confirm to the user.
         // uploadToServer(item, function() {
         //   if (intent.exit) { cordova.openwith.exit(); }

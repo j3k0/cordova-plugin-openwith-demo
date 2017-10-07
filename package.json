@@ -12,14 +12,14 @@
     "dependencies": {
         "cc.fovea.cordova.openwith": "file:///Users/jeko/Documents/cordova-plugin-openwith",
         "cordova-android": "^6.2.3",
-        "cordova-plugin-whitelist": "1"
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-console": "^1.1.0",
+        "cordova-plugin-whitelist": "^1.3.2"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cc.fovea.cordova.openwith": {
-                "MIME_TYPE": "image/*"
-            }
+            "cordova-plugin-console": {}
         }
     }
 }

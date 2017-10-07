@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="cc.fovea.openwith.demo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>OpenWith</name>
+    <name>Open With</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -22,8 +22,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <plugin name="cc.fovea.cordova.openwith" spec="file:///Users/jeko/Documents/cordova-plugin-openwith">
-        <variable name="MIME_TYPE" value="image/*" />
-    </plugin>
     <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-console" spec="1" />
 </widget>

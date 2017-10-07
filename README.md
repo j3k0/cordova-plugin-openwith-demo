@@ -1,6 +1,6 @@
 # cordova-plugin-openwith-demo
 
-<a href="https://fovea.cc"><img alt="Logo Fovea" src="https://fovea.cc/blog/wp-content/uploads/2017/09/fovea-logo-flat-128.png" height="59" /></a> &amp; <a href="https://www.interactivetools.com"><img alt="Logo InteractiveTools" src="https://www.interactivetools.com/assets/images/header/logo.png" height="59" /></a>
+<a href="https://fovea.cc"><img alt="Logo Fovea" src="https://fovea.cc/blog/wp-content/uploads/2017/09/fovea-logo-flat-128.png" height="50" /></a> &amp; <a href="https://www.interactivetools.com"><img alt="Logo InteractiveTools" src="https://www.interactivetools.com/assets/images/header/logo.png" height="59" /></a>
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
@@ -21,6 +21,16 @@ This app will accept to be sent images. When an image is shared with the app, it
 Before launching, add the platform you want to test with.
 
     cordova platform add android
+    cordova platform add ios
+
+Install the plugin (see [cordova-plugin-openwith](https://github.com/j3k0/cordova-plugin-openwith) for instructions). For a quick test:
+
+    cordova plugin add cc.fovea.cordova.openwith \
+      --variable ANDROID_MIME_TYPE="image/*" \
+      --variable IOS_URL_SCHEME=ccfoveaopenwithdemo \
+      --variable IOS_UNIFORM_TYPE_IDENTIFIER=public.image
+
+If testing on iOS, there are additional steps to perform from within XCode, please check the doc.
 
 ## Usage
 Run the app with cordova:
